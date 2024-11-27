@@ -203,3 +203,18 @@ docker-compose -f ./docker-compose.yaml up --build -d
 docker-compose -f ./docker-compose.yaml down 
 docker-compose -f ../2_Calculator-microservices/docker-compose.yaml down
 ```
+
+
+# PORT vs EXPOSE
+
+Si deseas que los puertos de los servicios solo sean accesibles dentro de la red calc-network y no desde el exterior, puedes omitir la configuración de ports en los servicios y usar solo expose. Esto permite que los contenedores sean accesibles únicamente por otros contenedores dentro de la misma red.
+
+```yaml
+expose:
+  - "8000"
+```
+
+```yaml
+ports:
+  - "8004:8000"
+```

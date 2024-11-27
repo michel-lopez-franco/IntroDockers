@@ -4,16 +4,16 @@ services:
   addition:
     build:
       context: ./addition
-    ports:
-      - "8001:8000"
+    expose:
+      - "8000"  # Expone el puerto solo dentro de la red
     networks:
       - calc-network
 
   subtraction:
     build:
       context: ./subtraction
-    ports:
-      - "8002:8000"
+    expose:
+      - "8000"  # Expone el puerto solo dentro de la red
     networks:
       - calc-network
 
