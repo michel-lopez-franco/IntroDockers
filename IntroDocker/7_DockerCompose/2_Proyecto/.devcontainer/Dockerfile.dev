@@ -1,0 +1,20 @@
+FROM python:3.11-slim
+
+# Instalar herramientas de desarrollo
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    vim \
+    redis-tools
+
+WORKDIR /workspace
+
+# Instalar dependencias Python
+COPY ../src/requirements.txt .
+RUN pip install -r requirements.txt
+
+# Instalar herramientas de desarrollo
+RUN pip install pylint black pytest
+
+# Mantener el contenedor corriendo
+CMD ["sleep", "infinity"]

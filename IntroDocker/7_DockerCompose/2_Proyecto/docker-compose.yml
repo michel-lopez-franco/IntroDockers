@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  web:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      - PRODUCTION=true
+    ports:
+      - "8000:8000"
+    volumes:
+      - app_data:/app/data
+    deploy:
+      replicas: 3
+
+  redis:
+    image: redis:alpine
+    volumes:
+      - redis_data:/data
+
+volumes:
+  app_data:
+  redis_data:

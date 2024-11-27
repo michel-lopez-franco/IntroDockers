@@ -1,0 +1,20 @@
+{
+    "name": "Python Redis Development",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "app",
+    "workspaceFolder": "/workspace",
+    
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-azuretools.vscode-docker"
+            ]
+        }
+    },
+    
+    "forwardPorts": [5000, 6379],
+    
+    "postCreateCommand": "pip install -r src/requirements.txt"
+}

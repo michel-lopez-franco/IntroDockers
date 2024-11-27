@@ -1,0 +1,40 @@
+version: "3.8"
+
+services:
+  addition:
+    build:
+      context: ./addition
+    ports:
+      - "8001:8000"
+    networks:
+      - calc-network
+
+  subtraction:
+    build:
+      context: ./subtraction
+    ports:
+      - "8002:8000"
+    networks:
+      - calc-network
+
+  multiplication:
+    build:
+      context: ./multiplication
+    ports:
+      - "8003:8000"
+    networks:
+      - calc-network
+
+  division:
+    build:
+      context: ./division
+    ports:
+      - "8004:8000"
+    networks:
+      - calc-network
+
+networks:
+  calc-network:
+    external: true
+    
+    

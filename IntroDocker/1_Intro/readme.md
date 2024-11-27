@@ -21,4 +21,7 @@ docker run -it -p 5000:5000 mi-app sh
 ```
     
    
-    
+# Borrar todos los contenedores 
+```bash
+docker ps -a -q | xargs docker rm    
+```
